@@ -1,9 +1,10 @@
 package com.github.vedeshkin.RoadMap;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
-public class City {
+public class City implements Serializable {
     private final String cityName;
     private int population;
     private List cityRoads;

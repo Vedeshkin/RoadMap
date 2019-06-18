@@ -2,16 +2,14 @@ package com.github.vedeshkin.RoadMap;
 
 public class Main {
 
+    static CityService cityService = CityServiceImpl.getInstance();
+    static RoadService roadService = RoadServiceImpl.getInstance();
 
     public static void main(String[] args) {
         //just a few test before real actions take a place
-        CityService cityService = CityServiceImpl.getInstance();
-        RoadService roadService = RoadServiceImpl.getInstance();
-        cityService.addCity("Moscow", 12_000_00);
-        cityService.addCity("Saint-Petersburg", 6_000_000);
-        roadService.addRoad("M105", 670, "Saint-Petersburg", "Moscow");
-        roadService.addRoad("MKAD", 120, "Moscow", "Moscow");
-        roadService.addRoad("M102", 500, "Moscow", "Saint-Petersburg");
+      fillUpWithData();
+
+
         //let see what we get so far
         cityService.getAllCitiesList().forEach(System.out::println);
         roadService.getAllRoadsList().forEach(System.out::println);
@@ -30,4 +28,11 @@ public class Main {
 
 
     }
+ static  void fillUpWithData(){
+    cityService.addCity("Moscow", 12_000_00);
+    cityService.addCity("Saint-Petersburg", 6_000_000);
+    roadService.addRoad("M105", 670, "Saint-Petersburg", "Moscow");
+    roadService.addRoad("MKAD", 120, "Moscow", "Moscow");
+    roadService.addRoad("M102", 500, "Moscow", "Saint-Petersburg");
+  }
 }

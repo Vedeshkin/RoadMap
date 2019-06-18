@@ -1,7 +1,9 @@
 package com.github.vedeshkin.RoadMap;
 
 
-public class Road {
+import java.io.Serializable;
+
+public class Road implements Serializable {
 
     private final String roadName;
     private int distance;

@@ -8,9 +8,23 @@ public class CityServiceImpl implements CityService {
 
     private HashMap<String ,City> cities;
     private  static CityServiceImpl instance;
+    private StorageService storageService;
+    final static String OBJECT_NAME = "Cities";
 
     private  CityServiceImpl(){
+        this.storageService = StorageServiceFileImpl.getInstance();
         this.cities = new HashMap<>();
+        //Let's try to load data from somewhere;
+        HashMap<String, City> map =  storageService.loadObject(OBJECT_NAME);
+        if(map !=  null){
+            //good at least we have something here
+            this.cities = map;
+            System.out.println("Loaded from disk,count is "+cities.size());
+        }
+
+
+
+
     }
 
     public static CityServiceImpl getInstance() {
@@ -41,6 +55,7 @@ public class CityServiceImpl implements CityService {
             return;
         }
         cities.remove(name);
+        storageService.saveObject(this.cities,OBJECT_NAME);
     }
 
     @Override
@@ -51,6 +66,8 @@ public class CityServiceImpl implements CityService {
         }
         City newCity = new City(name,population);
         cities.put(name,newCity);
+        //here we go, this is a good idea to save object here.
+        storageService.saveObject(this.cities,OBJECT_NAME);
 
     }
 
