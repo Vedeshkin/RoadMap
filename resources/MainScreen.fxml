@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.layout.HBox?>
+<VBox fx:id="mainBox" prefHeight="400.0"
+      prefWidth="600.0"
+      xmlns="http://javafx.com/javafx/8.0.211"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.github.vedeshkin.RoadMap.UI.MainScreenController">
+
+      <HBox maxHeight="Infinity" maxWidth="Infinity">
+          <VBox maxWidth="Infinity" >
+              <TextField prefWidth="450" fx:id="cityNameTextField" promptText="Enter City Name..." />
+          </VBox>
+          <VBox maxWidth="Infinity">
+              <TextField prefWidth="100" fx:id="cityPopulationTextField" promptText="Enter City population" />
+          </VBox>
+           <VBox >
+            <Button HBox.hgrow="ALWAYS" fx:id="addCityButton"
+                    alignment="CENTER_RIGHT"
+                    text="Add city" textAlignment="LEFT"
+                    onAction="#handleAddCityButton"/>
+          </VBox>
+       </HBox>
+
+</VBox>

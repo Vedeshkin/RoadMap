@@ -1,4 +1,7 @@
-package com.github.vedeshkin.RoadMap;
+package com.github.vedeshkin.RoadMap.Core;
+
+import com.github.vedeshkin.RoadMap.DAO.City;
+import com.github.vedeshkin.RoadMap.DAO.Road;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,9 +10,20 @@ import java.util.List;
 public class RoadServiceImpl implements RoadService {
     private HashMap<String, Road> roads;
     private static RoadServiceImpl instance;
+    private StorageService storageService;
+    private final String OBJECT_NAME = "Roads";
 
     private RoadServiceImpl() {
-        this.roads = new HashMap<>();
+        this.storageService = StorageServiceFileImpl.getInstance();
+        HashMap map = storageService.loadObject(OBJECT_NAME);
+        if(map == null ) {
+            this.roads = new HashMap<>();
+        }
+        else{
+            this.roads = map;
+        }
+
+
     }
 
     public static RoadServiceImpl getInstance() {
@@ -41,6 +55,7 @@ public class RoadServiceImpl implements RoadService {
         road.getHead().removeRoad(road);
         road.getTail().removeRoad(road);
         roads.remove(name);
+        storageService.saveObject(this.roads,OBJECT_NAME);
     }
 
     @Override
@@ -70,6 +85,7 @@ public class RoadServiceImpl implements RoadService {
         //here we have to update the list of roads for the  both of  cites
         cityFrom.addRoadToCity(newRoad);
         cityTo.addRoadToCity(newRoad);
+        storageService.saveObject(this.roads,OBJECT_NAME);
     }
 
 

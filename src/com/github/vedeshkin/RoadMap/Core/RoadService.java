@@ -1,4 +1,6 @@
-package com.github.vedeshkin.RoadMap;
+package com.github.vedeshkin.RoadMap.Core;
+
+import com.github.vedeshkin.RoadMap.DAO.Road;
 
 import java.util.List;
 

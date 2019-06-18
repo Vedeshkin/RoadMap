@@ -1,4 +1,7 @@
-package com.github.vedeshkin.RoadMap;
+package com.github.vedeshkin.RoadMap.Core;
+
+import com.github.vedeshkin.RoadMap.DAO.City;
+import com.github.vedeshkin.RoadMap.DAO.Road;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,7 +9,7 @@ import java.util.List;
 
 public class CityServiceImpl implements CityService {
 
-    private HashMap<String ,City> cities;
+    private HashMap<String , City> cities;
     private  static CityServiceImpl instance;
     private StorageService storageService;
     final static String OBJECT_NAME = "Cities";

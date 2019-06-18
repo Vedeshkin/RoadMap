@@ -1,4 +1,5 @@
-package com.github.vedeshkin.RoadMap;
+package com.github.vedeshkin.RoadMap.DAO;
+
 
 
 import java.io.Serializable;

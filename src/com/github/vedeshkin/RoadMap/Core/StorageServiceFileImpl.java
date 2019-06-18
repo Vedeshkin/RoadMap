@@ -1,4 +1,4 @@
-package com.github.vedeshkin.RoadMap;
+package com.github.vedeshkin.RoadMap.Core;
 
 import java.io.*;
 import java.nio.file.Files;

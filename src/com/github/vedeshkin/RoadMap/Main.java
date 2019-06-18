@@ -1,5 +1,10 @@
 package com.github.vedeshkin.RoadMap;
 
+import com.github.vedeshkin.RoadMap.Core.CityService;
+import com.github.vedeshkin.RoadMap.Core.CityServiceImpl;
+import com.github.vedeshkin.RoadMap.Core.RoadService;
+import com.github.vedeshkin.RoadMap.Core.RoadServiceImpl;
+
 public class Main {
 
     static CityService cityService = CityServiceImpl.getInstance();
