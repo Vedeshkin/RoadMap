@@ -11,7 +11,7 @@
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.github.vedeshkin.RoadMap.UI.MainScreenController">
 
-      <HBox maxHeight="Infinity" maxWidth="Infinity">
+<!--      <HBox maxHeight="Infinity" maxWidth="Infinity">
           <VBox maxWidth="Infinity" >
               <TextField prefWidth="450" fx:id="cityNameTextField" promptText="Enter City Name..." />
           </VBox>
@@ -24,6 +24,21 @@
                     text="Add city" textAlignment="LEFT"
                     onAction="#handleAddCityButton"/>
           </VBox>
-       </HBox>
+      </HBox>-->
+          <HBox  maxWidth="Infinity">
+              <VBox maxWidth="Infinity">
+                  <Button HBox.hgrow="ALWAYS" fx:id="manageCitiesButton"
+                          alignment="CENTER_LEFT"
+                          text="Manage cities"
+                          onAction="#handleManageCities"/>
+              </VBox>
+              <VBox maxWidth="Infinity">
+                  <Button HBox.hgrow="ALWAYS" fx:id="manageRoadsButton"
+                          alignment="CENTER_LEFT"
+                          text="Manage cities"
+                          onAction="#handleManageRoads"/>
+              </VBox>
+          </HBox>
+
 
 </VBox>
