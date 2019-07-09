@@ -2,10 +2,19 @@ package com.github.vedeshkin.RoadMap.UI;
 
 import com.github.vedeshkin.RoadMap.Core.CityService;
 import com.github.vedeshkin.RoadMap.Core.CityServiceImpl;
+import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.Window;
+
+import java.io.IOException;
 
 public class MainScreenController {
 
@@ -39,10 +48,17 @@ public class MainScreenController {
 
     }
 
-    public void handleManageCities(ActionEvent actionEvent) {
- /*     here we should show the modal windows within the list of the cities
-        however this window should block any other*/
-        System.out.println("Under development :(");
+    public void handleManageCities(ActionEvent actionEvent) throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getResource("/CityEditor.fxml"));
+        Scene cityEditorScene = new Scene(root);
+        Stage cityEditorStage =  new Stage();
+        cityEditorStage.initModality(Modality.WINDOW_MODAL);
+        cityEditorStage.initOwner(RoadMapUI.getMainStage());
+        cityEditorStage.setScene(cityEditorScene);
+        cityEditorStage.show();
+
+
     }
 
     public void handleManageRoads(ActionEvent actionEvent) {

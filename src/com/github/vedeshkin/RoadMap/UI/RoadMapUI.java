@@ -10,8 +10,18 @@ import java.io.IOException;
 
 public class RoadMapUI extends Application {
 
+    private static Stage mainStage;
+
     public static void main(String[] args) {
         launch(args);
+    }
+
+    public static Stage getMainStage() {
+        return mainStage;
+    }
+
+    public  void setMainStage(Stage stage) {
+        mainStage = stage;
     }
 
     @Override
@@ -22,6 +32,8 @@ public class RoadMapUI extends Application {
        Scene scene = new Scene(root);
        primaryStage.setScene(scene);
        primaryStage.show();
+       setMainStage(primaryStage);
+
 
     }
 }
