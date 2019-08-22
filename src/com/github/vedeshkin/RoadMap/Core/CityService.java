@@ -11,5 +11,6 @@ public interface CityService {
     void addCity(String name,int population);
     List<City> getAllCitiesList();
     List<Road> getAllRoadsForTheCity(String name);
+    boolean isExist(String cityName);
 
 }

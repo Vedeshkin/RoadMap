@@ -2,7 +2,6 @@ package com.github.vedeshkin.RoadMap.UI;
 
 import com.github.vedeshkin.RoadMap.Core.CityService;
 import com.github.vedeshkin.RoadMap.Core.CityServiceImpl;
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +11,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 
 import java.io.IOException;
 
@@ -36,7 +34,7 @@ public class MainScreenController {
         }
         cityService.addCity(city, population);
         //huh?We fucked up.
-        //We don't know if we added city or not and what is cause of the issue.
+        //We don't know if we added city or not and what is the cause of the issue.
         //TODO:
         /*Bad design of the city service
          * We need to refactor it asap

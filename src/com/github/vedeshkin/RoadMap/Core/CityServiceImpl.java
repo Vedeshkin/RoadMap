@@ -63,10 +63,6 @@ public class CityServiceImpl implements CityService {
 
     @Override
     public void addCity(String name, int population) {
-        if(cities.containsKey(name)){
-            System.out.println("The city under this name already exists");
-            return;
-        }
         City newCity = new City(name,population);
         cities.put(name,newCity);
         //here we go, this is a good idea to save object here.
@@ -87,5 +83,11 @@ public class CityServiceImpl implements CityService {
             return null;
         }
         return city.getCityRoads();
+    }
+
+    @Override
+    public boolean isExist(String cityName) {
+      return cities.containsKey(cityName);
+
     }
 }

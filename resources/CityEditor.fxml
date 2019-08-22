@@ -7,7 +7,7 @@
 <VBox fx:id="mainBox" prefHeight="400.0" prefWidth="400.0"
       xmlns="http://javafx.com/javafx/8.0.211"
       xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.github.vedeshkin.RoadMap.UI.CityEditorController">
+    fx:controller="com.github.vedeshkin.RoadMap.UI.CityEditorController">
 
     <HBox prefWidth="400" alignment="CENTER">
 <!--        <Label text="Hello World" prefWidth="400" fx:id="testField" />-->
