@@ -6,7 +6,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.geometry.Insets?>
-<VBox fx:controller="com.github.vedeshkin.RoadMap.sandbox.SandboxController"
+<VBox
       xmlns:fx="http://javafx.com/fxml/1"
       xmlns="http://javafx.com/javafx/8.0.211">
     <GridPane
@@ -39,8 +39,8 @@
         <padding>
             <Insets bottom="5" right="5"/>
         </padding>
-        <Button fx:id="Save" text="Save"/>
-        <Button fx:id="Cancel" text="Cancel"/>
+        <Button fx:id="saveButton" text="Save" onAction="#saveObject"/>
+        <Button fx:id="cancelButton" text="Cancel"/>
     </HBox>
 
 
