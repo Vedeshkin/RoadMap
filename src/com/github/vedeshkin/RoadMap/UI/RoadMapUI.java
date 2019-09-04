@@ -1,7 +1,5 @@
 package com.github.vedeshkin.RoadMap.UI;
 
-import com.github.vedeshkin.RoadMap.DAO.City;
-import com.github.vedeshkin.RoadMap.sandbox.SandboxController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,18 +10,18 @@ import java.io.IOException;
 
 public class RoadMapUI extends Application {
 
-    private static Stage mainStage;
+    private static Stage currentStage;
 
     public static void main(String[] args) {
         launch(args);
     }
 
-    public static Stage getMainStage() {
-        return mainStage;
+    public static Stage getCurrentStage() {
+        return currentStage;
     }
 
-    public void setMainStage(Stage stage) {
-        mainStage = stage;
+    public static void setCurrentStage(Stage stage) {
+        currentStage = stage;
     }
 
     @Override
@@ -32,8 +30,9 @@ public class RoadMapUI extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/MainScreen.fxml"));
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
+        primaryStage.setResizable(false);
         primaryStage.show();
-        setMainStage(primaryStage);
+        setCurrentStage(primaryStage);
 
 
     }

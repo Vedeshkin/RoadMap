@@ -1,10 +1,12 @@
-package com.github.vedeshkin.RoadMap.UI;
+package com.github.vedeshkin.RoadMap.UI.controllers;
 
 import com.github.vedeshkin.RoadMap.Core.CityService;
 import com.github.vedeshkin.RoadMap.Core.CityServiceImpl;
+import com.github.vedeshkin.RoadMap.UI.RoadMapUI;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -24,35 +26,13 @@ public class MainScreenController {
     private TextField cityPopulationTextField;
     private CityService cityService = CityServiceImpl.getInstance();
 
-
-    public void handleAddCityButton(ActionEvent actionEvent) {
-        String city = cityNameTextField.getText();
-        int population = Integer.parseInt(cityPopulationTextField.getText());
-        if (city.isEmpty()) {
-            System.out.println("City is empty");
-            return;
-        }
-        cityService.addCity(city, population);
-        //huh?We fucked up.
-        //We don't know if we added city or not and what is the cause of the issue.
-        //TODO:
-        /*Bad design of the city service
-         * We need to refactor it asap
-         * */
-
-        cityNameTextField.clear();
-        cityPopulationTextField.clear();
-
-
-    }
-
     public void handleManageCities(ActionEvent actionEvent) throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("/CityEditor.fxml"));
         Scene cityEditorScene = new Scene(root);
         Stage cityEditorStage =  new Stage();
         cityEditorStage.initModality(Modality.WINDOW_MODAL);
-        cityEditorStage.initOwner(RoadMapUI.getMainStage());
+        cityEditorStage.initOwner(RoadMapUI.getCurrentStage());
         cityEditorStage.setScene(cityEditorScene);
         cityEditorStage.show();
 
@@ -66,5 +46,11 @@ public class MainScreenController {
 
          */
         System.out.println("Under development :(");
+    }
+
+    public void handleExit(ActionEvent actionEvent) {
+        Node source = (Node) actionEvent.getSource();
+        Stage st = (Stage) source.getScene().getWindow();
+        st.close();
     }
 }
