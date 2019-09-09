@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox prefHeight="400"
+      xmlns="http://javafx.com/javafx/8.0.211"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.github.vedeshkin.RoadMap.UI.controllers.RoadEditorController">
+    <padding>
+        <Insets bottom="5" left="5" right="5" top="10"/>
+    </padding>
+
+    <HBox HBox.hgrow="ALWAYS">
+        <VBox HBox.hgrow="ALWAYS">
+            <padding>
+                <Insets bottom="10" left="20" right="20" top="10"/>
+            </padding>
+            <ListView fx:id="listOfRoadsUI"/>
+        </VBox>
+
+        <VBox spacing="20" HBox.hgrow="ALWAYS" alignment="CENTER">
+            <padding>
+                <Insets bottom="10" left="20" right="20" top="10"/>
+            </padding>
+            <Button text="Add Road" onAction="#addRoad"/>
+            <Button text="Edit road" onAction="#editRoad"/>
+            <Button text="Remove road" onAction="#removeRoad"/>
+
+        </VBox>
+    </HBox>
+
+    <HBox alignment="CENTER">
+        <Button fx:id="closeWindowButton" prefWidth="150" onAction="#handleCloseWindow" text="Close"/>
+    </HBox>
+</VBox>

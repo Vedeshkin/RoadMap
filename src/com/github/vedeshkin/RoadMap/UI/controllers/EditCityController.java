@@ -4,12 +4,11 @@ package com.github.vedeshkin.RoadMap.UI.controllers;
 import com.github.vedeshkin.RoadMap.Core.CityService;
 import com.github.vedeshkin.RoadMap.Core.CityServiceImpl;
 import com.github.vedeshkin.RoadMap.DAO.City;
+import com.github.vedeshkin.RoadMap.UI.RoadMapUI;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -45,15 +44,10 @@ public class EditCityController implements Initializable {
         cityService.removeCity(city.getCityName());
         cityService.addCity(city.getCityName(), city.getPopulation());
         CityEditorController.updateListOfCitites();
-
-        Node src = (Node) event.getSource();
-        Stage st = (Stage) src.getScene().getWindow();
-        st.close();
+        RoadMapUI.getCurrentStage().close();
     }
 
     public void closeDialog(ActionEvent actionEvent) {
-        Node src = (Node) actionEvent.getSource();
-        Stage st = (Stage) src.getScene().getWindow();
-        st.close();
+        RoadMapUI.getCurrentStage().close();
     }
 }

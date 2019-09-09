@@ -88,10 +88,43 @@ public class RoadServiceImpl implements RoadService {
         storageService.saveObject(this.roads,OBJECT_NAME);
     }
 
+    @Override
+    public void addRoad(String name, int distance, City fromCity, City toCity) {
+        if (roads.containsKey(name)) {
+            System.out.println("The road already exist");
+            return;
+        }
+
+        if (fromCity == null) {
+            System.out.println("The city you've specified as a head of the road doesn't exist");
+            return;
+        }
+        if (fromCity == null) {
+            System.out.println("The city you've specified as a tail of the road doesn't exist");
+            return;
+        }
+        //are you going to build circle road?huh?
+        if (fromCity == toCity) {
+            System.out.println("Circle roads are not allowed in the current version");
+            return;
+        }
+        Road newRoad = new Road(name, distance, fromCity, toCity);
+        roads.put(name, newRoad);
+        //here we have to update the list of roads for the  both of  cites
+        fromCity.addRoadToCity(newRoad);
+        toCity.addRoadToCity(newRoad);
+        storageService.saveObject(this.roads, OBJECT_NAME);
+
+    }
 
 
     @Override
     public List<Road> getAllRoadsList() {
         return new ArrayList<>(roads.values());
+    }
+
+    @Override
+    public boolean isRoadExist(String name) {
+        return roads.containsKey(name);
     }
 }

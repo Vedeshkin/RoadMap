@@ -13,4 +13,6 @@ public interface CityService {
     List<Road> getAllRoadsForTheCity(String name);
     boolean isExist(String cityName);
 
+    void flush();
+
 }

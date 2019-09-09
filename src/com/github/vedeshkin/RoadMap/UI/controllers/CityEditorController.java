@@ -3,6 +3,7 @@ package com.github.vedeshkin.RoadMap.UI.controllers;
 import com.github.vedeshkin.RoadMap.Core.CityService;
 import com.github.vedeshkin.RoadMap.Core.CityServiceImpl;
 import com.github.vedeshkin.RoadMap.DAO.City;
+import com.github.vedeshkin.RoadMap.UI.RoadMapUI;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -64,6 +65,7 @@ public class CityEditorController implements Initializable {
         addCityStage.initModality(Modality.WINDOW_MODAL);
         addCityStage.initOwner(source.getScene().getWindow());
         addCityStage.setScene(addCityScene);
+        RoadMapUI.setCurrentStage(addCityStage);
         addCityStage.show();
 
 
@@ -86,12 +88,13 @@ public class CityEditorController implements Initializable {
         Node source = (Node) actionEvent.getSource();
 
         Parent child = loader.load();
-        Scene addCityScene = new Scene(child);
-        Stage addCityStage = new Stage();
-        addCityStage.initModality(Modality.WINDOW_MODAL);
-        addCityStage.initOwner(source.getScene().getWindow());
-        addCityStage.setScene(addCityScene);
-        addCityStage.show();
+        Scene editCityScene = new Scene(child);
+        Stage editCityStage = new Stage();
+        editCityStage.initModality(Modality.WINDOW_MODAL);
+        editCityStage.initOwner(source.getScene().getWindow());
+        editCityStage.setScene(editCityScene);
+        RoadMapUI.setCurrentStage(editCityStage);
+        editCityStage.show();
 
 
     }

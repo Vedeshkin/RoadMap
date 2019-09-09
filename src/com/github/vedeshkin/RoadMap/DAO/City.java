@@ -7,12 +7,12 @@ import java.util.List;
 public class City implements Serializable {
     private final String cityName;
     private int population;
-    private List cityRoads;
+    private List<Road> cityRoads;
 
     public City(String cityName, int population) {
         this.cityName = cityName;
         this.population = population;
-        this.cityRoads = new LinkedList();
+        this.cityRoads = new LinkedList<>();
     }
 
     public void setPopulation(int population) {
@@ -29,7 +29,7 @@ public class City implements Serializable {
 
     public List getCityRoads() {
         //user shouldn't have access to the underlying object
-        return new LinkedList(cityRoads);
+        return new LinkedList<>(cityRoads);
     }
     public void addRoadToCity(Road road)
     {

@@ -39,13 +39,15 @@ public class MainScreenController {
 
     }
 
-    public void handleManageRoads(ActionEvent actionEvent) {
-        /*
-         * Here we should show the modal windows within the list of the roads
-         * Also please remember that a road must be connected to the cities
+    public void handleManageRoads(ActionEvent actionEvent) throws IOException {
 
-         */
-        System.out.println("Under development :(");
+        Parent root = FXMLLoader.load(getClass().getResource("/RoadEditor.fxml"));
+        Scene roadEditorScene = new Scene(root);
+        Stage roadEditorStage = new Stage();
+        roadEditorStage.initModality(Modality.WINDOW_MODAL);
+        roadEditorStage.initOwner(RoadMapUI.getCurrentStage());
+        roadEditorStage.setScene(roadEditorScene);
+        roadEditorStage.show();
     }
 
     public void handleExit(ActionEvent actionEvent) {

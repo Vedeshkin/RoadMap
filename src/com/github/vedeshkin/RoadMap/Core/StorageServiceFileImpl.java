@@ -34,7 +34,7 @@ public class StorageServiceFileImpl implements StorageService {
             System.out.println(ex.getMessage());
         }
 
-        System.out.println("Object saved to "+ file.getName());
+        System.out.println("Object saved to " + file.getAbsolutePath());
 
     }
 
@@ -44,7 +44,7 @@ public class StorageServiceFileImpl implements StorageService {
         T object = null;
 
         if(!Files.exists(path)){
-            System.out.println("Object under this ID doesn't exist in working dir");
+            System.out.println("Object under ID " + name + " doesn't exist in " + path.toString());
             return null;
         }
         try (FileInputStream fileInputStream = new FileInputStream(path.toFile());
@@ -57,7 +57,7 @@ public class StorageServiceFileImpl implements StorageService {
         }
         //So far we load object...we don't need a copy of it on disk so it's a good idea to remove it
         //for avoiding any possible conflicts
-        removeObject(name);
+        //removeObject(name);
 
         return object;
     }
