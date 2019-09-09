@@ -6,18 +6,14 @@ import java.util.List;
 
 public class City implements Serializable {
     private final String cityName;
-    private int population;
-    private List<Road> cityRoads;
+    private final int population;
+    private List<Road> cityRoads = new LinkedList<>();
 
     public City(String cityName, int population) {
         this.cityName = cityName;
         this.population = population;
-        this.cityRoads = new LinkedList<>();
     }
 
-    public void setPopulation(int population) {
-        this.population = population;
-    }
 
     public String getCityName() {
         return cityName;

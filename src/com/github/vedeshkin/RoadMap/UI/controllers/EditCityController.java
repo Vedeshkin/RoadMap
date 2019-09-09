@@ -33,16 +33,21 @@ public class EditCityController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         cityName.setText(city.getCityName());
-        cityName.setEditable(false);
+        cityName.setDisable(true);
         populationUI.setText(String.valueOf(city.getPopulation()));
     }
 
     public void saveObject(ActionEvent event) {
 
-        int populationValue = Integer.parseInt(populationUI.getText());
-        city.setPopulation(populationValue);
+        int newPopulation = 0;
+        try {
+            newPopulation = Integer.parseInt(populationUI.getText());
+        } catch (NumberFormatException ex) {
+            System.out.println("Wrong number");
+            return;
+        }
         cityService.removeCity(city.getCityName());
-        cityService.addCity(city.getCityName(), city.getPopulation());
+        cityService.addCity(city.getCityName(), newPopulation);
         CityEditorController.updateListOfCitites();
         RoadMapUI.getCurrentStage().close();
     }

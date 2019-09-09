@@ -50,6 +50,6 @@ public class Road implements Serializable {
 
     @Override
     public String toString() {
-        return "Road["+roadName+ "]" +  "distance["+ distance+ "]";
+        return "Road[" + roadName + "]" + " distance[" + distance + "]";
     }
 }

@@ -113,6 +113,7 @@ public class RoadServiceImpl implements RoadService {
         //here we have to update the list of roads for the  both of  cites
         fromCity.addRoadToCity(newRoad);
         toCity.addRoadToCity(newRoad);
+        CityServiceImpl.getInstance().flush();//Dirty Hack to update and save list of roads on disk
         storageService.saveObject(this.roads, OBJECT_NAME);
 
     }
